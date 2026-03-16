@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Sarova Bar & Restaurant"
+version = "1.0.0"
+id = "artifacts/sarova-restaurant"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 24683
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/sarova-restaurant run dev"
+
+[services.env]
+PORT = "24683"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/sarova-restaurant", "run", "build"]
+publicDir = "artifacts/sarova-restaurant/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
