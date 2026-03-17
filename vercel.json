@@ -1,0 +1,9 @@
+{
+  "buildCommand": "pnpm --filter @workspace/sarova-restaurant run build",
+  "outputDirectory": "artifacts/sarova-restaurant/dist/public",
+  "installCommand": "pnpm install",
+  "framework": null,
+  "env": {
+    "BASE_PATH": "/"
+  }
+}
